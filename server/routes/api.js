@@ -13,14 +13,13 @@ mongoose.connect(db, function (err) {
 
 router.get('/tasks', function (req, res) {
   console.log('Get request for all tasks');
-  Task.find({})
-    .exec(function (err, tasks) {
-      if (err) {
-        console.log('Error retrieving tasks');
-      } else {
-        res.json(tasks);
-      }
-    })
+  Task.find(function (err, tasks) {
+    if (err) {
+      console.log('Error retrieving tasks');
+      res.send(err);
+    }
+    res.json(tasks);
+  })
 });
 
 /*router.get('/videos/:id', function (req, res) {
