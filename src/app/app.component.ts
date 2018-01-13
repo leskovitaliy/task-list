@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  newTestTask: String = '';
+  newTaskText: String = '';
   constructor() { }
 
   ngOnInit() {
     console.log('init');
   }
 
-  onSelectNewTask(task: any) {
-    this.newTestTask = task;
-    console.log('this.newTask', this.newTestTask);
+  addNewTask(task: any) {
+    this.newTaskText = task;
+    console.log('this.newTaskText', this.newTaskText);
   }
 }
