@@ -2,7 +2,7 @@
   <app-task-add (newTask)="addNewTask($event)"></app-task-add>
 
   <div class="container-fluid">
-    <app-task-list [tasks]="tasks"></app-task-list>
+    <app-task-list [tasks]="tasks" (delTaskEvent)="delTask($event)"></app-task-list>
   </div>
 </div>
 

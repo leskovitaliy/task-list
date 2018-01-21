@@ -1,6 +1,17 @@
 .list-group {
   position: relative;
   .fa-times {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    opacity: 0;
+  }
+}
 
+.list-group:hover {
+  .fa-times {
+    opacity: 1;
+    transition: opacity 0.5s;
+    z-index: 1000;
   }
 }

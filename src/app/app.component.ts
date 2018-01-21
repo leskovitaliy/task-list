@@ -26,4 +26,22 @@ export class AppComponent implements OnInit {
          this.tasks.push(resNewTask);
       });
   }
+
+  public delTask(id: string) {
+    console.log('ev id', id);
+    this.tasksService.deleteTask(id)
+      .subscribe(resRemoveTask => {
+        if (resRemoveTask) {
+          // debugger
+          // const index = this.tasks.indexOf(resRemoveTask._id);
+          // if (index !== -1) {
+          //   this.tasks.splice(index, 1);
+          // }
+        }
+        /*if (index !== -1) {
+          this.tasks.splice(index, 1);
+        }*/
+        console.log('rem Task: ', resRemoveTask);
+      });
+  }
 }

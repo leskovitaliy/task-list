@@ -61,6 +61,7 @@ router.post('/task', function (req, res) {
 
 router.delete('/task/:id', function (req, res) {
   console.log('Deleting a task');
+  console.log('req.params.id: ', req.params.id);
   Task.findByIdAndRemove(req.params.id, function (err, deletedTask) {
     if (err) {
       res.send('Error deleting task');
