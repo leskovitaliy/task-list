@@ -9,7 +9,8 @@ import {Observable} from 'rxjs/Observable';
 export class TasksService {
   private _getUrl = '/api/tasks';
   private _postUrl = '/api/task';
-  private _putUrl = '/api/video';
+  private _putUrl = '/api/task';
+  private _deleteUrl = '/api/task/';
 
   constructor(private _http: HttpClient) {
   }
@@ -29,5 +30,9 @@ export class TasksService {
 
      return this._http.post(this._postUrl, newTask)
        .map(res => res);
+  }
+
+  deleteTask(id: string) {
+    return this._http.delete(this._deleteUrl + id);
   }
 }

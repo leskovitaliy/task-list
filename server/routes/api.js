@@ -59,15 +59,15 @@ router.post('/task', function (req, res) {
   )
 });*/
 
-/*router.delete('/video/:id', function (req, res) {
-  console.log('Deleting a video');
-  Video.findByIdAndRemove(req.params.id, function (err, deletedVideo) {
+router.delete('/task/:id', function (req, res) {
+  console.log('Deleting a task');
+  Task.findByIdAndRemove(req.params.id, function (err, deletedTask) {
     if (err) {
-      res.send('Error deleting video');
+      res.send('Error deleting task');
     } else {
-      res.json(deletedVideo);
+      res.json(deletedTask);
     }
   })
-});*/
+});
 
 module.exports = router;

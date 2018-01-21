@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Task} from '../models/task';
+import {TasksService} from '../services/tasks.service';
 
 @Component({
   selector: 'app-task-list',
@@ -8,6 +9,10 @@ import {Task} from '../models/task';
 })
 export class TaskListComponent {
   @Input() tasks: Array<Task>;
-  constructor() { }
+  constructor(private taskService: TasksService) { }
+
+  public deleteTask(id) {
+    this.taskService.deleteTask(id);
+  }
 
 }
