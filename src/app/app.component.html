@@ -1,6 +1,11 @@
 <div class="tasks-wrap">
   <app-task-add (newTask)="addNewTask($event)"></app-task-add>
-  <app-task-list [(task)]="newTaskText"></app-task-list>
-  {{newTaskText}}
+
+  <div class="container-fluid">
+    <app-task-list [tasks]="tasks"></app-task-list>
+  </div>
 </div>
+
 <router-outlet></router-outlet>
+
+

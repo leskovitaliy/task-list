@@ -1,3 +1,12 @@
-<p>
-  task-list works: {{task}}
-</p>
+<div class="list-group"
+     *ngFor="let task of tasks">
+  <a href="#"
+     class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{task.header}}</h5>
+      <small>{{task.date}} - 3 days ago</small>
+    </div>
+    <p class="mb-1">{{task.description}}</p>
+    <small class="text-muted">{{task.isDone}}</small>
+  </a>
+</div>

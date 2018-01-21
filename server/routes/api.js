@@ -22,33 +22,23 @@ router.get('/tasks', function (req, res) {
   })
 });
 
-/*router.get('/videos/:id', function (req, res) {
-  console.log('Get request for a single video');
-  Video.findById(req.params.id)
-    .exec(function (err, video) {
-      if (err) {
-        console.log('Error retrieving video');
-      } else {
-        res.json(video);
-      }
-    })
-});*/
+router.post('/task', function (req, res) {
+  console.log('Post a task');
 
-/*router.post('/video', function (req, res) {
-  console.log('Post a video');
+  var newTask = new Task();
+  newTask.header = req.body.header;
+  newTask.description = req.body.description;
+  newTask.date = req.body.date;
+  newTask.isDone = req.body.isDone;
 
-  var newVideo = new Video();
-  newVideo.title = req.body.title;
-  newVideo.url = req.body.url;
-  newVideo.description = req.body.description;
-  newVideo.save(function (err, insertedVideo) {
+  newTask.save(function (err, insertedTask) {
     if (err) {
-      console.log('Error saving video');
+      console.log('Error saving task');
     } else {
-      res.json(insertedVideo);
+      res.json(insertedTask);
     }
   });
-});*/
+});
 
 /*router.put('/video/:id', function (req, res) {
   console.log('Update a video');

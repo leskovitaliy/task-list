@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TasksService} from './services/tasks.service';
+import {Task} from './models/task';
 
 @Component({
   selector: 'app-root',
@@ -6,16 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
+  tasks: Array<any>;
   newTaskText: String = '';
-  constructor() { }
+  public constructor(private tasksService: TasksService) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     console.log('init');
+    this.tasksService.getTasks()
+      .subscribe(resTasks => this.tasks = resTasks);
   }
 
-  addNewTask(task: any) {
+  public addNewTask(task: any) {
     this.newTaskText = task;
-    console.log('this.newTaskText', this.newTaskText);
+    this.tasksService.addTask(task)
+      .subscribe(resNewTask => {
+        console.log('app resNewTask: ', resNewTask);
+         this.tasks.push(resNewTask);
+      });
   }
 }
