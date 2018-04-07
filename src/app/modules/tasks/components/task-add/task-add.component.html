@@ -4,12 +4,14 @@
          placeholder="Enter new task..."
          aria-label="Enter new task"
          aria-describedby="basic-addon2"
-         [(ngModel)]='inputText'>
+         [(ngModel)]='inputText'
+         (keyup.enter)="addTask()">
 
   <span class="input-group-btn">
         <button class="btn btn-secondary"
                 type="button"
-                (click)="addTask()">
+                (click)="addTask()"
+                [disabled]="!inputText">
           Add new task
         </button>
   </span>
