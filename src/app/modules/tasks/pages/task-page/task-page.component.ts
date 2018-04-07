@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TasksService} from '../../services/tasks.service';
 
 
@@ -11,7 +11,9 @@ export class TaskPageComponent implements OnInit {
 
   tasks: Array<any>;
   newTaskText: String = '';
-  public constructor(private tasksService: TasksService) { }
+
+  public constructor(private tasksService: TasksService) {
+  }
 
   public ngOnInit() {
     console.log('init');

@@ -1,10 +1,15 @@
-<div class="tasks-wrap">
-  <h1>page component</h1>
-
-  <app-task-add (newTask)="addNewTask($event)"></app-task-add>
-
-  <div class="container-fluid">
+<main>
+  <section class="task-new">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <app-task-add (newTask)="addNewTask($event)"></app-task-add>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </section>
+  <article class="task-list">
     <app-task-list [tasks]="tasks" (delTaskEvent)="delTask($event)"></app-task-list>
-  </div>
-</div>
+  </article>
+</main>
 

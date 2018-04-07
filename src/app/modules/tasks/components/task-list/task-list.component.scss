@@ -1,5 +1,16 @@
 .list-group {
+  padding: 2px 0;
   position: relative;
+
+  a.list-group-item {
+    background-color: #434c53;
+    color: #ffffff;
+  }
+
+  a.list-group-item-action:hover {
+    background-color: #434c62;
+  }
+
   .fa-times {
     position: absolute;
     top: 3px;
