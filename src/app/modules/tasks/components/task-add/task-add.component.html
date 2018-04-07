@@ -5,7 +5,7 @@
          aria-label="Enter new task"
          aria-describedby="basic-addon2"
          [(ngModel)]='inputText'
-         (keyup.enter)="addTask()">
+         (keyup.enter)="inputText ? addTask() : null">
 
   <span class="input-group-btn">
         <button class="btn btn-secondary"

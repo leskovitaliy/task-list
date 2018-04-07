@@ -1,7 +1,6 @@
 <div class="list-group"
      *ngFor="let task of tasks">
-  <a href="#"
-     class="list-group-item list-group-item-action flex-column align-items-start">
+  <div class="list-group-item list-group-item-action flex-column align-items-start">
 
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{task?.header}}</h5>
@@ -14,5 +13,5 @@
     <i class="fa fa-times"
        aria-hidden="true"
        (click)="deleteTask(task?._id)"></i>
-  </a>
+  </div>
 </div>
