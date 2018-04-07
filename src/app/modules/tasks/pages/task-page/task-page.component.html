@@ -1,0 +1,10 @@
+<div class="tasks-wrap">
+  <h1>page component</h1>
+
+  <app-task-add (newTask)="addNewTask($event)"></app-task-add>
+
+  <div class="container-fluid">
+    <app-task-list [tasks]="tasks" (delTaskEvent)="delTask($event)"></app-task-list>
+  </div>
+</div>
+
