@@ -5,7 +5,7 @@
 
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{task?.header}}</h5>
-      <small>{{task?.date}} - 3 days ago</small>
+      <small>{{task?.date | date: 'medium'}} - 3 days ago</small>
     </div>
 
     <p class="mb-1">{{task?.description}}</p>
