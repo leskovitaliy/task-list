@@ -10,7 +10,9 @@ import {Task} from '../../interfaces/task';
 export class TaskListComponent {
   @Input() tasks: Array<Task>;
   @Output() delTaskEvent: EventEmitter<any> = new EventEmitter<any>();
-  constructor() { }
+
+  constructor() {
+  }
 
   public deleteTask(id) {
     this.delTaskEvent.emit(id);

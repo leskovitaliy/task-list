@@ -4,7 +4,9 @@
 
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{task?.header}}</h5>
-      <small>{{task?.date | date: 'medium'}} - 3 days ago</small>
+      <small *ngIf="task">
+        {{ task?.date | date: 'medium'}} - {{task?.agoDate.value ? (task?.agoDate?.value | number: '1.0-0') : '' }} {{' ' + task?.agoDate?.description }} ago
+      </small>
     </div>
 
     <p class="mb-1">{{task?.description}}</p>

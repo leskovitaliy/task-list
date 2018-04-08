@@ -13,6 +13,7 @@ import {TaskListComponent} from './components/task-list/task-list.component';
 
 // services
 import {TasksService} from './services/tasks.service';
+import {TimeService} from './services/time.service';
 
 
 @NgModule({
@@ -27,6 +28,9 @@ import {TasksService} from './services/tasks.service';
     TaskAddComponent,
     TaskListComponent
   ],
-  providers: [TasksService]
+  providers: [
+    TasksService,
+    TimeService
+  ]
 })
 export class TasksModule { }
