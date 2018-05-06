@@ -7,10 +7,12 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class TasksService {
-  private _getUrl = '/api/tasks';
-  private _postUrl = '/api/task';
-  private _putUrl = '/api/task';
-  private _deleteUrl = '/api/task/';
+  private host = 'http://localhost:3000';
+
+  private _getUrl = this.host + '/api/tasks';
+  private _postUrl = this.host + '/api/task';
+  private _putUrl = this.host + '/api/task';
+  private _deleteUrl = this.host + '/api/task/';
 
   constructor(private _http: HttpClient) {
   }
