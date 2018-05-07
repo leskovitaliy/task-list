@@ -30,6 +30,7 @@ router.post('/task', function (req, res) {
   newTask.description = req.body.description;
   newTask.date = req.body.date;
   newTask.isDone = req.body.isDone;
+  newTask.status = req.body.status;
 
   newTask.save(function (err, insertedTask) {
     if (err) {
