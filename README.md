@@ -7,7 +7,7 @@ Stack MEAN
 ## Development server
 
 step #1 npm install
-step #2 ng build --watch
+step #2 npm start
 step #3 node server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

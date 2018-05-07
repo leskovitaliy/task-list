@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TasksService} from '../../services/tasks.service';
 import {TimeService} from '../../services/time.service';
-import {interval} from 'rxjs/observable/interval';
 import {tap} from 'rxjs/operators';
-import {timer} from 'rxjs/observable/timer';
 
 
 @Component({

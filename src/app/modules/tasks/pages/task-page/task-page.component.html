@@ -9,7 +9,9 @@
     </div>
   </section>
   <article class="task-list">
-    <app-task-list [tasks]="tasks" (delTaskEvent)="delTask($event)"></app-task-list>
+    <app-task-list [tasks]="tasks"
+                   (delTaskEvent)="delTask($event)">
+    </app-task-list>
   </article>
 </main>
 
