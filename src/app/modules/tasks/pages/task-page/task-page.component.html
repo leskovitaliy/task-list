@@ -10,7 +10,8 @@
   </section>
   <article class="task-list">
     <app-task-list [tasks]="tasks"
-                   (delTaskEvent)="delTask($event)">
+                   (delTaskEvent)="delTask($event)"
+                   (changeStatusTask)="changeTaskStatus($event)">
     </app-task-list>
   </article>
 </main>

@@ -14,6 +14,7 @@ import {TaskListComponent} from './components/task-list/task-list.component';
 // services
 import {TasksService} from './services/tasks.service';
 import {TimeService} from './services/time.service';
+import { SelectComponent } from './components/select/select.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {TimeService} from './services/time.service';
   declarations: [
     TaskPageComponent,
     TaskAddComponent,
-    TaskListComponent
+    TaskListComponent,
+    SelectComponent
   ],
   providers: [
     TasksService,

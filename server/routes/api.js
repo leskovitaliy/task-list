@@ -41,6 +41,25 @@ router.post('/task', function (req, res) {
   });
 });
 
+router.put('/task/:id', function (req, res) {
+  console.log('Update a task');
+  Task.findByIdAndUpdate(req.params.id,
+    {
+      $set: { status: req.body.status }
+    },
+    {
+      new: true
+    },
+    function (err, updatedTask) {
+      if (err) {
+        res.send('Error updating task');
+      } else {
+        res.json(updatedTask);
+      }
+    }
+  )
+})
+
 /*router.put('/video/:id', function (req, res) {
   console.log('Update a video');
   Video.findByIdAndUpdate(req.params.id,

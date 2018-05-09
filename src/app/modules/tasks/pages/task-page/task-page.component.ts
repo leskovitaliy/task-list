@@ -57,6 +57,16 @@ export class TaskPageComponent implements OnInit {
       });
   }
 
+  public changeTaskStatus(event) {
+    this.tasksService.updateTask(event.id, event.status)
+      .subscribe(updateTask => {
+        const task = this.tasks.find(currentTask => currentTask._id === updateTask['_id']);
+        if (task) {
+          task.status = updateTask['status'];
+        }
+        });
+  }
+
   public getTimePassed(tasks) {
     if (tasks) {
       tasks.forEach(task => {

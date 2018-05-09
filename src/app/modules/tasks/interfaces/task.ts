@@ -4,4 +4,5 @@ export class Task {
   description: string;
   date: string;
   isDone: boolean;
+  status?: string;
 }
