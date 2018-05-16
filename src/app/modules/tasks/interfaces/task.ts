@@ -1,4 +1,4 @@
-export class Task {
+export class ITask {
   _id: string;
   header: string;
   description: string;

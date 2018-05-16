@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Task} from '../../interfaces/task';
+import {ITask} from '../../interfaces/task';
 import {STATUS} from '../../constants/status';
 
 
@@ -9,7 +9,7 @@ import {STATUS} from '../../constants/status';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent {
-  @Input() tasks: Array<Task>;
+  @Input() tasks: Array<ITask>;
   @Output() delTaskEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() changeStatusTask: EventEmitter<any> = new EventEmitter<any>();
 

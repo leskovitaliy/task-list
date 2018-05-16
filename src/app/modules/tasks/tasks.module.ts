@@ -15,14 +15,21 @@ import {TaskListComponent} from './components/task-list/task-list.component';
 import {TasksService} from './services/tasks.service';
 import {TimeService} from './services/time.service';
 import { SelectComponent } from './components/select/select.component';
+import {StoreModule} from '@ngrx/store';
+import {reducers} from '../core/store/reducers';
+import {EffectsModule} from '@ngrx/effects';
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
+import {AppRoutingModule} from '../../app-routing.module';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     HttpClientModule,
-    TasksRoutingModule
+    TasksRoutingModule,
+    SharedModule
+    // EffectsModule.forRoot(coreEffects),
   ],
   declarations: [
     TaskPageComponent,

@@ -5,7 +5,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-
+import {TasksModule} from './modules/tasks/tasks.module';
+import {CoreModule} from './modules/core/core.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    // FormsModule,
+    CoreModule,
     HttpClientModule,
     AppRoutingModule
   ],

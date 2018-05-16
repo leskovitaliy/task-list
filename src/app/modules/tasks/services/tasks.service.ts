@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import {Task} from '../interfaces/task';
+import {ITask} from '../interfaces/task';
 import {Observable} from 'rxjs/Observable';
 
 
@@ -22,7 +22,7 @@ export class TasksService {
       .map(data => data);
   }
 
-  addTask(task: Task) {
+  addTask(task: ITask) {
     const newTask = {
       header: task,
       description: '',

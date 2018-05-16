@@ -2,6 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {TasksService} from '../../services/tasks.service';
 import {TimeService} from '../../services/time.service';
 import {tap} from 'rxjs/operators';
+import {Store} from '@ngrx/store';
+import {CreateTaskAction} from '../../store/actions/task.actions';
+import {CoreState} from '../../../core/store/reducers';
+import {Observable} from 'rxjs/Observable';
+import {getTasks} from '../../store/selectors/task.selector';
 
 
 @Component({
@@ -13,8 +18,10 @@ export class TaskPageComponent implements OnInit {
 
   tasks: Array<any>;
   newTaskText: String = '';
+  tasks$: Observable<any> = this.store.select(getTasks);
 
-  public constructor(private tasksService: TasksService,
+  public constructor(private store: Store<CoreState>,
+                     private tasksService: TasksService,
                      private timeService: TimeService) {
   }
 
@@ -34,6 +41,8 @@ export class TaskPageComponent implements OnInit {
 
   public addNewTask(task: any) {
     this.newTaskText = task;
+    this.store.dispatch(new CreateTaskAction(task));
+    console.log('this.store', this.store);
     this.tasksService.addTask(task)
       .subscribe(resNewTask => {
         console.log('app resNewTask: ', resNewTask);
@@ -71,7 +80,7 @@ export class TaskPageComponent implements OnInit {
     if (tasks) {
       tasks.forEach(task => {
         task.agoDate = this.timeService.getTimePassed(task.date);
-        console.log('task.agoDate', task.agoDate);
+        // console.log('task.agoDate', task.agoDate);
       });
     }
   }
