@@ -4,3 +4,4 @@ import {tasks} from '../reducers/task.reducer';
 
 export const getTaskState = (state: CoreState) => state.tasks;
 export const getTasks = createSelector(getTaskState, tasks);
+

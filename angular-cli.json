@@ -28,11 +28,6 @@
       }
     }
   ],
-  "e2e": {
-    "protractor": {
-      "config": "./protractor.conf.js"
-    }
-  },
   "lint": [
     {
       "files": "src/**/*.ts",
@@ -43,11 +38,6 @@
       "project": "e2e/tsconfig.json"
     }
   ],
-  "test": {
-    "karma": {
-      "config": "./karma.conf.js"
-    }
-  },
   "defaults": {
     "styleExt": "scss",
     "prefixInterfaces": false,
