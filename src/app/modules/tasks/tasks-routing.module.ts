@@ -1,7 +1,7 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import {TaskPageComponent} from './pages/task-page/task-page.component';
+import { TaskPageComponent } from './pages/task-page/task-page.component';
 
 const routes: Routes = [
   {

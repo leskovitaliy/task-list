@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { ITimePassed } from '../interfaces/task';
 
 @Injectable()
 export class TimeService {
 
   constructor() { }
 
-  getTimePassed(dateCreated) {
+  getTimePassed(dateCreated): ITimePassed {
     const secondsNow = Date.now();
     const secondsCreated = new Date(dateCreated).getTime();
     const secondsDiff = secondsNow - secondsCreated;
@@ -27,7 +28,7 @@ export class TimeService {
     };
   }
 
-  getDataForDisplay(data) {
+  getDataForDisplay(data): ITimePassed {
     const dateForDisplay = {
       value: 0,
       description: ''

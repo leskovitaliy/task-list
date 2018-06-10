@@ -1,7 +1,3 @@
-<section>
-  <div>{{tasks$ | async}}</div>
-</section>
-<br />
 <main>
   <section class="task-new">
     <div class="row">
@@ -12,8 +8,9 @@
       <div class="col-md-3"></div>
     </div>
   </section>
+
   <article class="task-list">
-    <app-task-list [tasks]="tasks"
+    <app-task-list [tasks]="taskItems$ | async"
                    (delTaskEvent)="delTask($event)"
                    (changeStatusTask)="changeTaskStatus($event)">
     </app-task-list>

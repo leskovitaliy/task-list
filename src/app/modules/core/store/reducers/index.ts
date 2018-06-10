@@ -1,14 +1,15 @@
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 import { ActionReducerMap } from '@ngrx/store';
-import { taskListReducer, TaskListState } from '../../../tasks/store/reducers/task.reducer';
+import { taskListReducer, ITaskListState } from '../../../tasks/store/reducers/task.reducer';
+import { RouterStateUrl } from './router.reducer';
 
 export interface CoreState {
-  router: RouterReducerState;
+  router: RouterReducerState<RouterStateUrl>;
 
-  tasks: TaskListState;
+  task: ITaskListState;
 }
 
 export const reducers: ActionReducerMap<CoreState> = {
-  tasks: taskListReducer,
+  task: taskListReducer,
   router: routerReducer
 };
