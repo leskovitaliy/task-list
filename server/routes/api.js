@@ -21,12 +21,18 @@ router.get('/tasks', (req, res) => {
     .skip((limit * currentPage) - limit)
     .limit(limit)
     .exec((err, tasks) => {
-      if (err) {
-        console.log('Error retrieving tasks');
-        res.send(err);
-      }
-      console.log('Get request for all tasks');
-      res.json(tasks);
+      Task.count().exec((err, count) => {
+        if (err) {
+          console.log('Error retrieving tasks');
+          res.send(err);
+        }
+        console.log('Get request for all tasks');
+        res.json({
+          tasks: tasks,
+          currentPage: currentPage,
+          pages: Math.ceil(count / limit)
+        })
+      })
     })
 });
 

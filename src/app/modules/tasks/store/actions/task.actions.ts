@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { ITask } from '../../interfaces/task';
+import { ITask, ITaskData } from '../../interfaces/task';
 
 export const ActionTypes = {
   CREATE_TASK: '[TASK]: task create',
@@ -54,7 +54,7 @@ export class LoadTasksAction implements Action {
 export class LoadTasksSuccessAction implements Action {
   readonly type = ActionTypes.LOAD_TASKS_SUCCESS;
 
-  constructor(public readonly payload?: ITask[]) {
+  constructor(public readonly payload?: ITaskData) {
   }
 }
 

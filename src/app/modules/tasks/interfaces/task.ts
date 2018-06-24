@@ -1,4 +1,4 @@
-export class ITask {
+export interface ITask {
   _id: number;
   header: string;
   description: string;
@@ -8,7 +8,13 @@ export class ITask {
   agoDate?: ITimePassed;
 }
 
-export class ITimePassed {
+export interface ITaskData {
+  tasks: ITask[];
+  currentPage: number;
+  pages: number;
+}
+
+export interface ITimePassed {
   value: number;
   description: string;
 }

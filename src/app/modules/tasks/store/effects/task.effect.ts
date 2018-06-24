@@ -26,7 +26,7 @@ import {
 
 import { CoreState } from '../../../core/store/reducers';
 import { TasksService } from '../../services/tasks.service';
-import { ITask } from '../../interfaces/task';
+import { ITask, ITaskData } from '../../interfaces/task';
 
 @Injectable()
 export class TaskEffects {
@@ -52,7 +52,7 @@ export class TaskEffects {
       ofType(CreateTaskActions.LOAD_TASKS),
       switchMap(() => this.taskService.getTasks()
         .pipe(
-          map((tasks: any) => new LoadTasksSuccessAction(tasks)),
+          map((tasks: ITaskData) => new LoadTasksSuccessAction(tasks)),
           catchError((error: any) => of(new LoadTasksErrAction(error)))
         )
       ),

@@ -94,7 +94,7 @@ export function taskListReducer(state: ITaskListState = initialState,
       const { payload } = action as LoadTasksSuccessAction;
       return {
         ...state,
-        taskItems: [...state.taskItems, ...payload],
+        taskItems: [...state.taskItems, ...payload.tasks],
         taskLoading: false,
         loadErr: null
       };
