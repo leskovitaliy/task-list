@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 import {ITask} from '../interfaces/task';
@@ -19,7 +19,10 @@ export class TasksService {
   constructor(private _http: HttpClient) {}
 
   getTasks(): Observable<any> {
-    return this._http.get(this._getUrl);
+    const params = new HttpParams() // TODO fix query params for pagination
+      .set('currentPage', '1')
+      .set('limit', '5');
+    return this._http.get(this._getUrl, {params});
   }
 
   addTask(name: string): Observable<ITask> {

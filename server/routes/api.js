@@ -5,87 +5,76 @@ const Task = require('../models/task');
 
 const db = "mongodb://lesko.vitaliy:qwest9384402@ds159696.mlab.com:59696/mytasklist_2017";
 mongoose.Promise = global.Promise;
-mongoose.connect(db, function (err) {
+mongoose.connect(db, (err) => {
   if (err) {
     console.error("Error! " + err);
   }
 });
 
-router.get('/tasks', function (req, res) {
-  console.log('Get request for all tasks');
-  Task.find(function (err, tasks) {
-    if (err) {
-      console.log('Error retrieving tasks');
-      res.send(err);
-    }
-    res.json(tasks);
-  })
+
+router.get('/tasks', (req, res) => {
+  let limit = parseInt(req.query.limit);
+  let currentPage = parseInt(req.query.currentPage) || 1;
+
+  Task
+    .find({})
+    .skip((limit * currentPage) - limit)
+    .limit(limit)
+    .exec((err, tasks) => {
+      if (err) {
+        console.log('Error retrieving tasks');
+        res.send(err);
+      }
+      console.log('Get request for all tasks');
+      res.json(tasks);
+    })
 });
 
-router.post('/task', function (req, res) {
-  console.log('Post a task');
+router.post('/task', (req, res) => {
+  let newTask = new Task();
+  const { header, description, date, isDone, status } = req.body;
 
-  var newTask = new Task();
-  newTask.header = req.body.header;
-  newTask.description = req.body.description;
-  newTask.date = req.body.date;
-  newTask.isDone = req.body.isDone;
-  newTask.status = req.body.status;
+  newTask.header = header;
+  newTask.description = description;
+  newTask.date = date;
+  newTask.isDone = isDone;
+  newTask.status = status;
 
-  newTask.save(function (err, insertedTask) {
+  newTask.save((err, insertedTask) => {
     if (err) {
       console.log('Error saving task');
     } else {
+      console.log('Post a task');
       res.json(insertedTask);
     }
   });
 });
 
-router.put('/task/:id', function (req, res) {
-  console.log('Update a task');
+router.put('/task/:id', (req, res) => {
   Task.findByIdAndUpdate(req.params.id,
     {
-      $set: { status: req.body.status }
+      $set: {status: req.body.status}
     },
     {
       new: true
     },
-    function (err, updatedTask) {
+    (err, updatedTask) => {
       if (err) {
         res.send('Error updating task');
       } else {
+        console.log('Update a task');
         res.json(updatedTask);
       }
     }
   )
-})
+});
 
-/*router.put('/video/:id', function (req, res) {
-  console.log('Update a video');
-  Video.findByIdAndUpdate(req.params.id,
-    {
-      $set: {title: req.body.title, url: req.body.url, description: req.body.description}
-    },
-    {
-      new: true
-    },
-    function (err, updatedVideo) {
-      if (err) {
-        res.send('Error updating video');
-      } else {
-        res.json(updatedVideo);
-      }
-    }
-  )
-});*/
-
-router.delete('/task/:id', function (req, res) {
-  console.log('Deleting a task');
-  console.log('req.params.id: ', req.params.id);
-  Task.findByIdAndRemove(req.params.id, function (err, deletedTask) {
+router.delete('/task/:id', (req, res) => {
+  Task.findByIdAndRemove(req.params.id, (err, deletedTask) => {
     if (err) {
       res.send('Error deleting task');
     } else {
+      console.log('Deleting a task');
       res.json(deletedTask);
     }
   })
