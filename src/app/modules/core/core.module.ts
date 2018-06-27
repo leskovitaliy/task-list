@@ -36,7 +36,8 @@ import { EffectsModule } from '@ngrx/effects';
   ],
   declarations: [],
   exports: [
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ]
 })
 export class CoreModule {

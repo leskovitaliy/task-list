@@ -21,7 +21,7 @@ export class TasksService {
   getTasks(): Observable<any> {
     const params = new HttpParams() // TODO fix query params for pagination
       .set('currentPage', '1')
-      .set('limit', '5');
+      .set('limit', '99999');
     return this._http.get(this._getUrl, {params});
   }
 
