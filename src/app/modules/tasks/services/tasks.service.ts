@@ -5,11 +5,12 @@ import 'rxjs/add/operator/map';
 import {ITask} from '../interfaces/task';
 import {Observable} from 'rxjs/Observable';
 import { pluckAndCatch } from '../../shared/utils/response-formater';
+import {environment} from '../../../../environments/environment';
 
 
 @Injectable()
 export class TasksService {
-  private host = 'http://localhost:3000';
+  private host = environment.baseUrl;
 
   private _getUrl = this.host + '/api/tasks';
   private _postUrl = this.host + '/api/task';
