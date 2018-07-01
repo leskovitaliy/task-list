@@ -1,0 +1,18 @@
+::ng-deep .select-wrap.hidden-arrow {
+  .mat-select-arrow-wrapper {
+    opacity: 0;
+  }
+}
+
+::ng-deep .select-wrap {
+  .mat-select-placeholder,
+  .mat-select-value {
+    color: #B9B9B9;
+    font-size: 14px;
+    text-transform: capitalize;
+  }
+}
+
+::ng-deep .mat-option-text {
+  text-transform: capitalize;
+}

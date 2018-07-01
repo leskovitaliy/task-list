@@ -1,0 +1,65 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 56px;
+  padding: 0 8px;
+  flex-wrap: wrap-reverse;
+  background-color: #434c53;
+  color: #ffffff;
+
+  &__select-text {
+    padding: 0 4px;
+  }
+
+  &__select {
+    display: flex;
+    align-items: baseline;
+    margin-right: 8px;
+
+
+    .select-column {
+      max-width: 46px;
+      ::ng-deep {
+        .mat-select-value {
+          text-align: center;
+        }
+        .mat-select-arrow,
+        .mat-select-value,
+        .mat-select-placeholder {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+
+    .material-icons {
+      padding: 0;
+      min-width: 0;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      line-height: 40px;
+      border-radius: 50%;
+      color: #ffffff;
+    }
+  }
+
+  &__btn {
+    background-color: inherit;
+    border: inherit;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &__btn[disabled] {
+    .material-icons {
+      color: #6c757d;
+    }
+  }
+}

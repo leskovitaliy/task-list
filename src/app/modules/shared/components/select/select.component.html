@@ -1,0 +1,11 @@
+<div class="select-wrap"
+     [class.hidden-arrow]="hiddenArrow">
+  <mat-select [placeholder]="currentValue"
+              (selectionChange)="changeOption($event.value)">
+
+    <mat-option *ngFor="let option of options"
+                [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-select>
+</div>

@@ -1,18 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { TasksService } from '../../services/tasks.service';
-import { TimeService } from '../../services/time.service';
-import { filter, tap } from 'rxjs/operators';
-import {
-  CreateTaskAction,
-  DeleteTaskAction,
-  LoadTasksAction,
-  UpdateTaskStatusAction
-} from '../../store/actions/task.actions';
-import { CoreState } from '../../../core/store/reducers';
-import { Observable } from 'rxjs/Observable';
-import { getTaskItems } from '../../store/selectors/task.selector';
-import { ITask } from '../../interfaces/task';
+import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {TasksService} from '../../services/tasks.service';
+import {TimeService} from '../../services/time.service';
+import {filter, tap} from 'rxjs/operators';
+import {CreateTaskAction, DeleteTaskAction, LoadTasksAction, UpdateTaskStatusAction} from '../../store/actions/task.actions';
+import {CoreState} from '../../../core/store/reducers';
+import {Observable} from 'rxjs/Observable';
+import {getTaskItems} from '../../store/selectors/task.selector';
+import {ITask} from '../../interfaces/task';
+import {NUMBER_OF_PAGES, QUANTITY_PER_PAGE_BY_DEFAULT} from '../../../shared/constants/pagination';
 
 @Component({
   selector: 'app-task-page',
@@ -20,7 +16,13 @@ import { ITask } from '../../interfaces/task';
   styleUrls: ['./task-page.component.scss']
 })
 export class TaskPageComponent implements OnInit {
+  readonly options = NUMBER_OF_PAGES;
+  itemsPerPage = QUANTITY_PER_PAGE_BY_DEFAULT;
+
   newTaskText: String = '';
+  tasks: ITask[];
+  currentPage = 0;
+
   taskItems$: Observable<Array<ITask>> = this.store.select(getTaskItems);
 
   public constructor(private store: Store<CoreState>,
@@ -39,7 +41,10 @@ export class TaskPageComponent implements OnInit {
           setInterval(() => this.getTimePassed(tasks), 1000);
         })
       )
-      .subscribe();
+      .subscribe(tasks => {
+        this.tasks = tasks;
+        console.log('tasks', this.tasks);
+      });
   }
 
   public addNewTask(name: string) {
@@ -62,6 +67,42 @@ export class TaskPageComponent implements OnInit {
         task.agoDate = this.timeService.getTimePassed(task.date);
       });
     }
+  }
+
+  // pagination
+
+  public startingItem() {
+    return this.currentPage * this.itemsPerPage;
+  }
+
+  public changeItemsPerPage(quantityShowPage: number) {
+    this.itemsPerPage = quantityShowPage;
+  }
+
+  public numberOfPages() {
+    return Math.ceil(this.tasks.length / this.itemsPerPage);
+  }
+
+  public isFirstPage() {
+    return this.currentPage === 0;
+  }
+
+  public isLastPage() {
+    const lastPageNum = Math.ceil(this.tasks.length / this.itemsPerPage - 1);
+    return this.currentPage === lastPageNum;
+  }
+
+  showPrevPage() {
+    this.currentPage = this.currentPage - 1;
+  }
+  showNextPage() {
+    this.currentPage = this.currentPage + 1;
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    // this.dataSource.filter = filterValue;
   }
 
 }

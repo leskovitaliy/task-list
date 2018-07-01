@@ -11,13 +11,17 @@
 
     <p class="mb-1">{{task?.description}}</p>
 
-    <app-select [options]="statuses"
-                [currentValue]="task?.status"
-                (updateStatus)="changeStatus($event, task?._id)">
-    </app-select>
+    <div class="select-column">
+      <app-select [options]="statuses"
+                  [currentValue]="task?.status"
+                  [hiddenArrow]="true"
+                  (changeValue)="changeStatus($event, task?._id)">
+      </app-select>
+    </div>
 
     <i class="fa fa-times"
        aria-hidden="true"
-       (click)="deleteTask(task?._id)"></i>
+       (click)="deleteTask(task?._id)">
+    </i>
   </div>
 </div>

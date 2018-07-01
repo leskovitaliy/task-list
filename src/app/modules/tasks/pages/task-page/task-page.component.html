@@ -10,10 +10,32 @@
   </section>
 
   <article class="task-list">
-    <app-task-list [tasks]="taskItems$ | async"
+    <app-task-list *ngIf="tasks && tasks.length"
+                   [tasks]="(taskItems$ | async | startFrom: startingItem() | limitTo: itemsPerPage)"
                    (delTaskEvent)="delTask($event)"
                    (changeStatusTask)="changeTaskStatus($event)">
     </app-task-list>
   </article>
+
+  <app-pagination *ngIf="tasks && tasks.length"
+                  [numbersOfPage]="options"
+                  [currentPage]="currentPage"
+                  [numberOfPages]="numberOfPages()"
+                  [isDisabledBackBtn]="isFirstPage()"
+                  [isDisabledNextBtn]="isLastPage()"
+                  [itemsPerPage]="itemsPerPage"
+                  (onBack)="showPrevPage()"
+                  (onNext)="showNextPage()"
+                  (changePerPage)="changeItemsPerPage($event)">
+  </app-pagination>
+
 </main>
+
+<!--
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+</div>-->
 

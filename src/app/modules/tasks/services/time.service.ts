@@ -51,13 +51,13 @@ export class TimeService {
       dateForDisplay.description = 'month';
     } else if (data.day >= 31 && data.day < 365) {
       dateForDisplay.value = null;
-      dateForDisplay.description = 'more month ago';
+      dateForDisplay.description = 'more month';
     } else if (data.day >= 365 && data.day < 366) {
       dateForDisplay.value = null;
-      dateForDisplay.description = 'year ago';
+      dateForDisplay.description = 'year';
     } else if (data.day >= 366) {
       dateForDisplay.value = null;
-      dateForDisplay.description = 'more year ago';
+      dateForDisplay.description = 'more year';
     }
 
     return dateForDisplay;

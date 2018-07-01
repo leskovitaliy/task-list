@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ITask} from '../../interfaces/task';
 import {STATUS} from '../../constants/status';
 
-
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
