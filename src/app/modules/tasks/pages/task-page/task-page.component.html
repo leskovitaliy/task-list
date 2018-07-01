@@ -9,9 +9,17 @@
     </div>
   </section>
 
+  <div class="search">
+    <mat-form-field class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 search__field">
+      <input matInput
+             [(ngModel)]="searchText"
+             placeholder="Enter the name of task">
+    </mat-form-field>
+  </div>
+
   <article class="task-list">
     <app-task-list *ngIf="tasks && tasks.length"
-                   [tasks]="(taskItems$ | async | startFrom: startingItem() | limitTo: itemsPerPage)"
+                   [tasks]="(taskItems$ | async | startFrom: startingItem() | limitTo: itemsPerPage | filter: searchText : tasks)"
                    (delTaskEvent)="delTask($event)"
                    (changeStatusTask)="changeTaskStatus($event)">
     </app-task-list>
@@ -30,12 +38,4 @@
   </app-pagination>
 
 </main>
-
-<!--
-<div class="example-header">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-</div>
-</div>-->
 

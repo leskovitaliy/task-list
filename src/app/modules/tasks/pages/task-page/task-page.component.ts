@@ -19,7 +19,8 @@ export class TaskPageComponent implements OnInit {
   readonly options = NUMBER_OF_PAGES;
   itemsPerPage = QUANTITY_PER_PAGE_BY_DEFAULT;
 
-  newTaskText: String = '';
+  searchText = '';
+  newTaskText = '';
   tasks: ITask[];
   currentPage = 0;
 
@@ -43,7 +44,6 @@ export class TaskPageComponent implements OnInit {
       )
       .subscribe(tasks => {
         this.tasks = tasks;
-        console.log('tasks', this.tasks);
       });
   }
 
@@ -97,12 +97,6 @@ export class TaskPageComponent implements OnInit {
   }
   showNextPage() {
     this.currentPage = this.currentPage + 1;
-  }
-
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    // this.dataSource.filter = filterValue;
   }
 
 }

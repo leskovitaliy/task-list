@@ -1,20 +1,17 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-task-add',
   templateUrl: './task-add.component.html',
-  styleUrls: ['./task-add.component.scss']
+  styleUrls: ['./task-add.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TaskAddComponent implements OnInit {
-  @Output() newTask: EventEmitter<any> = new EventEmitter<any>();
+export class TaskAddComponent {
   inputText: String = '';
-  constructor() { }
 
-  ngOnInit() {
-  }
+  @Output() newTask: EventEmitter<any> = new EventEmitter<any>();
 
   addTask() {
-    console.log('addTask text: ', this.inputText);
     this.newTask.emit(this.inputText);
     this.inputText = '';
   }
