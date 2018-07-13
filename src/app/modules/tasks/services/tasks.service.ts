@@ -12,10 +12,10 @@ import {environment} from '../../../../environments/environment';
 export class TasksService {
   private host = environment.baseUrl;
 
-  private _getUrl = this.host + '/api/tasks';
-  private _postUrl = this.host + '/api/task';
-  private _putUrl = this.host + '/api/task/';
-  private _deleteUrl = this.host + '/api/task/';
+  private _getUrl = '/api/tasks';
+  private _postUrl = '/api/task';
+  private _putUrl = '/api/task/';
+  private _deleteUrl =  '/api/task/';
 
   constructor(private _http: HttpClient) {}
 
