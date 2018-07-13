@@ -9,14 +9,10 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("dist"));
-}
-
 //Middleware for CORS
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
