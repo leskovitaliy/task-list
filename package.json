@@ -1,11 +1,17 @@
 {
   "name": "task-list",
   "version": "0.0.0",
+  "description": "A sample MEAN app",
+  "engines": {
+    "node": "8.9.4"
+  },
+  "main": "index.js",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -w --open",
+    "start": "node index.js",
+    "start:dev": "ng serve -w --open",
     "serve": "ng serve",
     "build": "ng build"
   },
@@ -49,5 +55,14 @@
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
     "typescript": "~2.5.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leskovitaliy/task-list"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ]
 }
