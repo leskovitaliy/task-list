@@ -1,11 +1,18 @@
+.header {
+  font-size: 24px;
+  line-height: 24px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
 .task-new {
   padding-bottom: 15px;
 }
 
-::ng-deep .search {
-  &__field {
-    color: #ffffff;
-  }
+::ng-deep .field-search {
+  width: 100%;
+  color: #ffffff;
 
   .mat-form-field-label,
   .mat-form-field-label-wrapper,

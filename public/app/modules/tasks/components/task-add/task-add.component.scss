@@ -1,21 +1,16 @@
-.input-group {
-  padding: 10px;
-}
+::ng-deep .field-create {
+  width: 100%;
+  color: #ffffff;
 
-.btn:hover {
-  cursor: pointer;
-}
+  .mat-form-field-label,
+  .mat-form-field-label-wrapper,
+  .mat-input-element {
+    color: #cccccc;
+  }
 
-.btn-secondary:hover {
-  color: #fff;
-  background-color: #434c62;
-  border-color: #434c62;
-}
-
-.btn-secondary.disabled,
-.btn-secondary:disabled {
-  background-color: #727b84;
-  border-color: #6c757d;
+  .mat-input-underline {
+    background-color: #ffffff;
+  }
 }
 
 button[disabled]:hover {

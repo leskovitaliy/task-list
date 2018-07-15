@@ -1,19 +1,17 @@
-<div class="input-group">
-  <input type="text"
-         class="form-control"
-         placeholder="Enter new task..."
-         aria-label="Enter new task"
-         aria-describedby="basic-addon2"
-         [(ngModel)]='inputText'
+<mat-form-field class="field-create">
+  <input matInput
+         type="text"
+         placeholder="Create new task"
+         [(ngModel)]="inputText"
          (keyup.enter)="inputText ? addTask() : null">
 
-  <span class="input-group-btn">
-        <button class="btn btn-secondary"
-                type="button"
-                (click)="addTask()"
-                [disabled]="!inputText">
-          Add new task
-        </button>
-  </span>
-</div>
+  <button mat-button
+          matSuffix
+          mat-icon-button
+          aria-label="Add"
+          (click)="addTask()"
+          [disabled]="!inputText">
 
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-form-field>
