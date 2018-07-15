@@ -19,7 +19,7 @@ export interface ITaskListState {
   creating: boolean;
   createErr: any;
 
-  taskLoading: boolean;
+  tasksLoading: boolean;
   loadErr: any;
 
   deleting: boolean;
@@ -35,7 +35,7 @@ export const initialState: ITaskListState = {
   creating: false,
   createErr: null,
 
-  taskLoading: false,
+  tasksLoading: false,
   loadErr: null,
 
   deleting: false,
@@ -86,7 +86,7 @@ export function taskListReducer(state: ITaskListState = initialState,
     case ActionTypes.LOAD_TASKS: {
       return {
         ...state,
-        taskLoading: true
+        tasksLoading: true
       };
     }
 
@@ -95,7 +95,7 @@ export function taskListReducer(state: ITaskListState = initialState,
       return {
         ...state,
         taskItems: [...state.taskItems, ...payload.tasks],
-        taskLoading: false,
+        tasksLoading: false,
         loadErr: null
       };
     }
@@ -105,7 +105,7 @@ export function taskListReducer(state: ITaskListState = initialState,
       return {
         ...state,
         loadErr: payload,
-        taskLoading: false
+        tasksLoading: false
       };
     }
 

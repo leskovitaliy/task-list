@@ -92,10 +92,10 @@ export class TaskPageComponent implements OnInit {
     return this.currentPage === lastPageNum;
   }
 
-  showPrevPage() {
+  public showPrevPage() {
     this.currentPage = this.currentPage - 1;
   }
-  showNextPage() {
+  public showNextPage() {
     this.currentPage = this.currentPage + 1;
   }
 
