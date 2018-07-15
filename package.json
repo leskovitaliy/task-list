@@ -10,7 +10,7 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "node index.js",
+    "start": "node server.js",
     "start:dev": "ng serve -w --open",
     "serve": "ng serve",
     "build": "ng build"

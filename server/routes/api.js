@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Task = require('../models/task');
 
-const db = process.env.MONGODB_URI || "mongodb://lesko.vitaliy:qwest9384402@ds159696.mlab.com:59696/mytasklist_2017";
+const db = "mongodb://lesko.vitaliy:qwest9384402@ds159696.mlab.com:59696/mytasklist_2017";
 mongoose.Promise = global.Promise;
 mongoose.connect(db, (err) => {
   if (err) {
