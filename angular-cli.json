@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "root": "src",
+      "root": "public",
       "outDir": "dist",
       "assets": [
         "assets",
@@ -30,8 +30,8 @@
   ],
   "lint": [
     {
-      "files": "src/**/*.ts",
-      "project": "src/tsconfig.json"
+      "files": "public/**/*.ts",
+      "project": "public/tsconfig.json"
     },
     {
       "files": "e2e/**/*.ts",
